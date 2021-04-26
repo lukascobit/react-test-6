@@ -3,21 +3,16 @@ import './App.css';
 
 function App() {
 
-  const [count,setCount] = useState(4);
+  const [type,setType] = useState('first');
 
-  function Plus(){
-    setCount(count+1)
-  }
-  function Minus(){
-    setCount(count-1)
-  }
 
   return (
     <div>
-      <button onClick={Plus}>+</button>
-      <h1>{count}</h1>
-      <button onClick={Minus}>-</button>
-
+      <button onClick={()=> setType('first')}>First</button>
+      <button onClick={()=> setType('second')}>Second</button>
+      <button onClick={()=> setType('third')}>Third</button>
+      <h1>{type}</h1>
+      
     </div>
   );
 }
