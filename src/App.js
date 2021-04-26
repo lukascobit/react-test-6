@@ -1,18 +1,24 @@
-import React,{ useState } from 'react'
+import React,{ useState, useEffect } from 'react'
 import './App.css';
 
 function App() {
 
-  const [type,setType] = useState('first');
+  const [windowWidth,setWindowWidth] = useState(window.innerWidth);
 
+  const Resize = ()=>{
+    setWindowWidth(window.innerWidth)
+  }
+
+
+  useEffect(()=>{
+    window.addEventListener('resize', Resize)
+  },[])
 
   return (
     <div>
-      <button onClick={()=> setType('first')}>First</button>
-      <button onClick={()=> setType('second')}>Second</button>
-      <button onClick={()=> setType('third')}>Third</button>
-      <h1>{type}</h1>
+
       
+      <h1>Window width:  {windowWidth}</h1>
     </div>
   );
 }
